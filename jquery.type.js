@@ -29,7 +29,7 @@ http://api.jquery.com/category/utilities/
 
 
 */
-(function( window ) {
+(function( window, exports ) {
 	"use strict";
 
 	// [[Class]] -> type pairs
@@ -54,33 +54,33 @@ http://api.jquery.com/category/utilities/
 	// See test/unit/core.js for details concerning isFunction.
 	// Since version 1.3, DOM methods and functions like alert
 	// aren't supported. They return false on IE (#2968).
-	window.isFunction = function( obj ) {
-		return window.type(obj) === "function";
+	exports.isFunction = function( obj ) {
+		return exports.type(obj) === "function";
 	};
 
-	window.isArray = Array.isArray || function( obj ) {
-		return window.type(obj) === "array";
+	exports.isArray = Array.isArray || function( obj ) {
+		return exports.type(obj) === "array";
 	};
 
-	window.isWindow = function( obj ) {
+	exports.isWindow = function( obj ) {
 		return obj != null && obj == obj.window;
 	};
 
-	window.isNumeric = function( obj ) {
+	exports.isNumeric = function( obj ) {
 		return !isNaN( parseFloat(obj) ) && isFinite( obj );
 	};
 
-	window.type = function( obj ) {
+	exports.type = function( obj ) {
 		return obj == null ?
 			String( obj ) :
 			class2type[ core_toString.call(obj) ] || "object";
 	};
 
-	window.isPlainObject = function( obj ) {
+	exports.isPlainObject = function( obj ) {
 		// Must be an Object.
 		// Because of IE, we also have to check the presence of the constructor property.
 		// Make sure that DOM nodes and window objects don't pass through, as well
-		if ( !obj || window.type(obj) !== "object" || obj.nodeType || window.isWindow( obj ) ) {
+		if ( !obj || exports.type(obj) !== "object" || obj.nodeType || exports.isWindow( obj ) ) {
 			return false;
 		}
 
@@ -105,7 +105,7 @@ http://api.jquery.com/category/utilities/
 		return key === undefined || core_hasOwn.call( obj, key );
 	};
 
-	window.isEmptyObject = function( obj ) {
+	exports.isEmptyObject = function( obj ) {
 		var name;
 		for ( name in obj ) {
 			return false;
@@ -118,4 +118,4 @@ http://api.jquery.com/category/utilities/
 	each("Boolean Number String Function Array Date RegExp Object".split(" "), function(i, name) {
 		class2type[ "[object " + name + "]" ] = name.toLowerCase();
 	});
-})( window );
+})( window, exports );

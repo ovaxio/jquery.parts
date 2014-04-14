@@ -21,7 +21,7 @@
   obj() // returns document
 */
 
-(function ( window ) {
+(function ( window, exports ) {
 	"use strict";
 	// [[Class]] -> type pairs
 	var class2type = {},
@@ -54,7 +54,7 @@
 
     // Bind a function to a context, optionally partially applying any
 	// arguments.
-    window.proxy = function( fn, context ) {
+  exports.proxy = function( fn, context ) {
 		var tmp, args, proxy;
 
 		if ( typeof context === "string" ) {
@@ -85,4 +85,4 @@
 	each("Boolean Number String Function Array Date RegExp Object".split(" "), function(i, name) {
 		class2type[ "[object " + name + "]" ] = name.toLowerCase();
 	});
-}( window ));
+}( window, exports ));

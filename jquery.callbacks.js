@@ -43,8 +43,9 @@ http://api.jquery.com/jQuery.Callbacks/
 
 
 */
-(function( window ) {
+(function( window, exports ) {
 	"use strict";
+	var Callbacks;
 
 	// jquery core functions, cut-down to just the cases we need
 	var each = function( obj, callback ) {
@@ -155,7 +156,7 @@ http://api.jquery.com/jQuery.Callbacks/
 	 *	stopOnFalse:	interrupt callings when a callback returns false
 	 *
 	 */
-	window.Callbacks = function( options ) {
+	Callbacks = function( options ) {
 
 		// Convert options from String-formatted to Object-formatted if needed
 		// (we check in cache first)
@@ -317,4 +318,6 @@ http://api.jquery.com/jQuery.Callbacks/
 		return self;
 	};
 
-})( window );
+	exports.Callbacks = Callbacks;
+
+})( window, exports );

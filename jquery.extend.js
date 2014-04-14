@@ -21,7 +21,7 @@
   var clonedArray = extend(true, [], ['a',['b','c',['d']]]);
 */
 
-(function ( window ) {
+(function ( window, exports ) {
 	"use strict";
 	// [[Class]] -> type pairs
 	var class2type = {},
@@ -98,7 +98,7 @@
 		class2type[ "[object " + name + "]" ] = name.toLowerCase();
 	});
 
-	window.extend = function() {
+	exports.extend = function() {
 		var options, name, src, copy, copyIsArray, clone,
 			target = arguments[0] || {},
 			i = 1,
@@ -148,7 +148,7 @@
 						}
 
 						// Never move original objects, clone them
-						target[ name ] = window.extend( deep, clone, copy );
+						target[ name ] = exports.extend( deep, clone, copy );
 
 					// Don't bring in undefined values
 					} else if ( copy !== undefined ) {
@@ -161,4 +161,4 @@
 		// Return the modified object
 		return target;
 	};
-}( window ));
+}( window, exports ));

@@ -13,7 +13,7 @@
 	Parts: jQuery project, Diego Perini, Lucent M.
 	This version: Addy Osmani
 */
-(function( window ) {
+(function( window, exports ) {
 	"use strict";
 
 	// Define a local copy of $
@@ -118,6 +118,6 @@
 	$.isReady = false;
 
 	// Expose $ to the global object
-	window.$ = $;
+	exports.documentReady = $;
 
-})( window );
+})( window, exports );
