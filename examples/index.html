@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script type="text/javascript" src="build.js"></script>
+<script type="text/javascript">
+  var jqueryparts = {};
+  var $ = require('jquery.parts/jquery.extend.js');
+  var documentReady = require('jquery.parts/jquery.documentReady.js');
+  var callbacks = require('jquery.parts/jquery.callbacks.js');
+  var type = require('jquery.parts/jquery.type.js');
+  var proxy = require('jquery.parts/jquery.proxy.js');
+
+  $.extend($, documentReady, callbacks, type, proxy);
+
+  console.log($);
+</script>
+</body>
+</html>

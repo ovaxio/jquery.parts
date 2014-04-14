@@ -1,0 +1,9 @@
+{
+  "name": "jquery.parts",
+  "description": "Parts of Jquery to use as standalone components",
+  "repository": "ovaxio/jquery.parts",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "scripts" : ["jquery.callbacks.js", "jquery.documentReady.js", "jquery.extend.js", "jquery.proxy.js", "jquery.type.js"]
+}
